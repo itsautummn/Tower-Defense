@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://sr2tg70377mr"]
+
+[ext_resource type="Script" path="res://Mobs/On Death/death_label.gd" id="1_0aay0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wnyb"]
+font_size = 10
+
+[node name="Label" type="Label"]
+anchors_preset = -1
+anchor_left = -0.025
+anchor_top = -0.022
+anchor_right = 0.025
+anchor_bottom = 0.022
+offset_top = -0.0799994
+offset_bottom = 0.0799994
+pivot_offset = Vector2(16, 8)
+text = "+$5"
+label_settings = SubResource("LabelSettings_0wnyb")
+horizontal_alignment = 1
+script = ExtResource("1_0aay0")

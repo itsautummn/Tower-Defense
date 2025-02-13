@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgxuj3015vwq2"]
+
+[ext_resource type="Script" path="res://Towers/UI/Cursor/placement_cursor.gd" id="1_i1bwd"]
+
+[node name="Placement Cursor" type="Sprite2D"]
+script = ExtResource("1_i1bwd")

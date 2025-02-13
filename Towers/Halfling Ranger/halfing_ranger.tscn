@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://djgxvs2t5pnhr"]
+
+[ext_resource type="Script" path="res://Towers/Halfling Ranger/halfing_ranger.gd" id="1_5p8xl"]
+[ext_resource type="Texture2D" uid="uid://do2x70hk6e5me" path="res://Towers/Halfling Ranger/HalflingRanger.png" id="1_rwp7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di6vt"]
+atlas = ExtResource("1_rwp7f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa6pv"]
+atlas = ExtResource("1_rwp7f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwl0e"]
+atlas = ExtResource("1_rwp7f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsh0l"]
+atlas = ExtResource("1_rwp7f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cffw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di6vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa6pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwl0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsh0l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4v5h"]
+radius = 128.25
+
+[node name="Halfing Ranger" type="Node2D"]
+script = ExtResource("1_5p8xl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cffw5")
+autoplay = "default"
+frame_progress = 0.0335058
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["tower"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_k4v5h")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
