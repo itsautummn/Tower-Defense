@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	progress_ratio += .05 * delta
 	if progress_ratio == 1:
 		lived.emit(DAMAGE)
+		Globals.add_mob_missed()
 		queue_free()
 
 
@@ -34,6 +35,7 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_health_depleted(amount) -> void:
 	health -= amount
 	$ProgressBar.value -= amount
+	Globals.add_damage_dealt(amount)
 	if health <= 0:
 		died.emit(REWARD)
 
@@ -42,4 +44,5 @@ func _on_death(reward) -> void:
 	label.text = "+$" + str(reward)
 	label.global_position = global_position
 	get_tree().root.add_child(label)
+	Globals.add_mob_killed()
 	queue_free()

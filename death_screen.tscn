@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckmsae6h7l3tq"]
+
+[ext_resource type="Script" path="res://death_screen.gd" id="1_a88r5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5kpn"]
+font_size = 44
+
+[node name="Death Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a88r5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -140.0
+offset_right = 192.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.909804, 0.882353, 0.988235, 0.784314)
+
+[node name="GameOver" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_r5kpn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 151.0
+columns = 2
+
+[node name="MobsKilled" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Mobs Killed"
+vertical_alignment = 1
+
+[node name="MKNum" type="Label" parent="GridContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MobsMissed" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Mobs Missed"
+vertical_alignment = 1
+
+[node name="MMNum" type="Label" parent="GridContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DamageDealt" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Damage Dealt"
+vertical_alignment = 1
+
+[node name="DDNum" type="Label" parent="GridContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HighestLevel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Highest Level"
+vertical_alignment = 1
+
+[node name="HLNum" type="Label" parent="GridContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MostUsedTower" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Most Used Tower"
+vertical_alignment = 1
+
+[node name="MUTNum" type="Label" parent="GridContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1

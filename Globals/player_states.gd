@@ -14,6 +14,13 @@ extends Node
 	null
 ]
 
+var tower_names = [
+	"Ranger",
+	null,
+	null,
+	null
+]
+
 var current
 enum state {
 	NOTHING,

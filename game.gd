@@ -4,6 +4,7 @@ extends Node2D
 @onready var hr_scene = preload("res://Towers/Halfling Ranger/halfing_ranger.tscn")
 @onready var placement_cursor = preload("res://Towers/UI/Cursor/placement_cursor.tscn")
 @onready var goblin_scene = preload("res://Mobs/Goblin/goblin.tscn")
+@onready var game_over_scene = preload("res://death_screen.tscn")
 
 
 const MAX_LIFE: float = 100.0
@@ -50,6 +51,7 @@ func _on_place_tower_spot_pressed(spot) -> void:
 	spot.get_child(0).visible = false # Only child of spot should be the exlam point
 	PlayerStates.change_state(PlayerStates.state.NOTHING)
 	$CursorParent.get_child(0).queue_free()
+	Globals.add_used_towers(PlayerStates.tower_names[PlayerStates.placing])
 
 
 func _on_mob_lived(damage):
@@ -73,8 +75,14 @@ func lose_life(amount):
 	life -= amount
 	if life < 0:
 		life = 0
+		game_over()
 	_update_life_ui()
 
 
 func _update_life_ui():
 	$CanvasLayer/PlayUI/LifeBar.value = life
+
+
+func game_over():
+	var screen = game_over_scene.instantiate()
+	$CanvasLayer.add_child(screen)
