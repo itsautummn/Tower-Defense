@@ -8,15 +8,13 @@ func remove_money(amount):
 	money -= amount
 	if money < 0:
 		money = 0
+func no_money() -> bool:
+	return money == 0
 
 # Stats for game over
 var towers_used_dict = {}
 func add_used_towers(name: String):
-	if towers_used_dict.has(name):
-		towers_used_dict[name] += 1
-	else:
-		towers_used_dict[name] = 1	
-	print("Debug: ", towers_used_dict)
+	towers_used_dict[name] = towers_used_dict.get(name, 0) + 1
 	
 var most_used_tower
 func find_most_used_tower():

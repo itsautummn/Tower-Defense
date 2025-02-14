@@ -37,21 +37,21 @@ func _input(event: InputEvent) -> void:
 		spawn()
 
 
-func _on_tower_button_pressed(placing) -> void:
+func _on_tower_button_pressed(button) -> void:
 	PlayerStates.change_state(PlayerStates.state.PLACING)
 	var cursor = placement_cursor.instantiate()
-	cursor.texture = PlayerStates.change_placing(placing)
+	cursor.texture = PlayerStates.change_placing(button.type)
 	$CursorParent.add_child(cursor)
 
 
 func _on_place_tower_spot_pressed(spot) -> void:
-	var tower = PlayerStates.placables[PlayerStates.placing].instantiate()
+	var tower = Towers.tower_scenes[PlayerStates.placing].instantiate()
 	$Towers.add_child(tower)
 	tower.global_position = spot.global_position + Vector2(8, 0) # BUG: Don't know the root cause but its position is off if I don't do this
 	spot.get_child(0).visible = false # Only child of spot should be the exlam point
 	PlayerStates.change_state(PlayerStates.state.NOTHING)
 	$CursorParent.get_child(0).queue_free()
-	Globals.add_used_towers(PlayerStates.tower_names[PlayerStates.placing])
+	Globals.add_used_towers(Towers.tower_names[PlayerStates.placing])
 
 
 func _on_mob_lived(damage):

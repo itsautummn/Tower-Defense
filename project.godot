@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerStates="*res://Globals/player_states.gd"
 Globals="*res://Globals/globals.gd"
+Towers="*res://Globals/towers.gd"
 
 [display]
 

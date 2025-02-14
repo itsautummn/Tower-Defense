@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://ce2j8lprsgapj"]
+[gd_scene load_steps=17 format=4 uid="uid://ce2j8lprsgapj"]
 
 [ext_resource type="TileSet" uid="uid://cccg2hghdx3u2" path="res://Tilemaps/grass_tilemap.tres" id="1_epd3g"]
 [ext_resource type="Script" path="res://game.gd" id="1_w7mc0"]
 [ext_resource type="Script" path="res://Towers/UI/Menus/menu.gd" id="2_ks6jd"]
-[ext_resource type="Script" path="res://hotbar.gd" id="3_ny0im"]
 [ext_resource type="Texture2D" uid="uid://bbptn0ch7e7gc" path="res://Towers/Halfling Ranger/halfing_ranger_button.png" id="4_bwbfs"]
 [ext_resource type="Texture2D" uid="uid://bbtu58m7fufv0" path="res://Towers/Halfling Ranger/halfing_ranger_button_hover.png" id="5_h6ah8"]
 [ext_resource type="Script" path="res://Towers/UI/Hotbar/tower_button.gd" id="6_sgtn6"]
@@ -133,7 +132,6 @@ offset_bottom = -0.0400391
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-script = ExtResource("3_ny0im")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/Hotbar"]
 layout_mode = 1
@@ -215,7 +213,6 @@ texture_normal = ExtResource("4_bwbfs")
 texture_hover = ExtResource("5_h6ah8")
 script = ExtResource("7_y5utx")
 money_label = NodePath("../../../../PlayUI/MoneyBackground/Money")
-cost = 5
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/BuyMenu/Background/GridContainer/ShopButton"]
 layout_mode = 1
@@ -316,13 +313,11 @@ script = ExtResource("10_xmsaa")
 [connection signal="mouse_entered" from="CanvasLayer/Hotbar/Background" to="CanvasLayer/Hotbar/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Hotbar/Background" to="CanvasLayer/Hotbar/Background" method="_on_mouse_exited"]
 [connection signal="confirmed_pressed" from="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" to="." method="_on_tower_button_pressed"]
-[connection signal="confirmed_pressed" from="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" to="CanvasLayer/Hotbar" method="_on_tower_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" to="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" to="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" to="CanvasLayer/Hotbar/Background/HBoxContainer/TextureButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/BuyMenu/Background" to="CanvasLayer/BuyMenu/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/BuyMenu/Background" to="CanvasLayer/BuyMenu/Background" method="_on_mouse_exited"]
-[connection signal="bought" from="CanvasLayer/BuyMenu/Background/GridContainer/ShopButton" to="CanvasLayer/Hotbar" method="_on_tower_bought"]
 [connection signal="pressed" from="CanvasLayer/BuyMenu/Background/GridContainer/ShopButton" to="CanvasLayer/BuyMenu/Background/GridContainer/ShopButton" method="_on_pressed"]
 [connection signal="place_tower_pressed" from="TowerSpots/Spot 1" to="." method="_on_place_tower_spot_pressed"]
 [connection signal="pressed" from="TowerSpots/Spot 1" to="TowerSpots/Spot 1" method="_on_pressed"]
